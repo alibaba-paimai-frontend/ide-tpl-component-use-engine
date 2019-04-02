@@ -14,6 +14,13 @@ function onClickWithStore(value) {
     name: 'text',
     value: `gggg${Math.random()}`.slice(0, 8)
   });
+
+  [SUBCOMP_START]
+  client.put('/alias/blockbar', {
+    name: 'logo',
+    value: 'https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png'
+  });
+  [SUBCOMP_END]
 }
 
 const props: I[CLASSNAME]Props = {

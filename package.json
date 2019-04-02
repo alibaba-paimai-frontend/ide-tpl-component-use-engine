@@ -74,7 +74,7 @@
   },
   "dependencies": {
 [SUBCOMP_START]
-      "ide-tree": "^2.0.4",
+      "ide-header-bar": "^0.1.3"
 [SUBCOMP_END]
   },
   "peerDependencies": {

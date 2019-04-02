@@ -2,13 +2,9 @@ import Router from 'ette-router';
 import { 
 [SUBCOMP_START]
   getInnerAppsMiddleware, 
-  getClientFromCtx,
 [SUBCOMP_END]
   buildNormalResponse } from 'ide-lib-base-component';
 
-[SUBCOMP_START]
-import { ESubApps } from '../schema/stores';
-[SUBCOMP_END]
 
 import { IContext } from './helper';
 
