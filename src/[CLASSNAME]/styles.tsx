@@ -11,8 +11,8 @@ export const StyledContainer = styled.div.attrs({
   display: ${(props: IStyledProps) => (props.visible ? 'block' : 'none')};
   border-radius: 5px;
   background: ${(props: IStyledProps) => props.theme.main};
-  width: 200px;
-  height: 100px;
+  width: 100%;
+  height: 200px;
   padding: 10px 20px;
 `;
 
