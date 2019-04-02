@@ -1,4 +1,5 @@
-import { IComponentConfig, ValueOf } from 'ide-lib-engine;
+import { ValueOf } from 'ide-lib-base-component';
+import { IComponentConfig } from 'ide-lib-engine';
 
 [SUBCOMP_START]
 import {

@@ -4,7 +4,7 @@ import { [CLASSNAME], [CLASSNAME]Factory, I[CLASSNAME]Props } from '../src/';
 import { Collapse } from 'antd';
 const Panel = Collapse.Panel;
 
-const { [CLASSNAME]WithStore, client } = [CLASSNAME]Factory();
+const { ComponentWithStore: [CLASSNAME]WithStore, client } = [CLASSNAME]Factory();
 
 function onClick(value) {
   console.log('当前点击：', value);

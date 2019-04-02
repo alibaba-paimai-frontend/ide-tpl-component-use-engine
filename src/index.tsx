@@ -8,14 +8,16 @@ import { [CLASSNAME]Currying } from './[CLASSNAME]/';
 import { config[CLASSNAME] } from './[CLASSNAME]/config';
 
 // 抽离子组件配置项
-const subComponents = config[CLASSNAME].component.children;
-const subComponentNames = Object.keys(subComponents);
 const subStoresModelMap = {};
 const subFactoryMap = {};
+[SUBCOMP_START]
+const subComponents = config[CLASSNAME].component.children;
+const subComponentNames = Object.keys(subComponents);
 subComponentNames.forEach((name: string) => {
     subStoresModelMap[name] = subComponents[name].storesModel;
     subFactoryMap[name] = subComponents[name].factory;
 });
+[SUBCOMP_END]
 
 const {
     ComponentModel: [CLASSNAME]Model,
