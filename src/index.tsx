@@ -1,11 +1,11 @@
 import { Instance } from 'mobx-state-tree';
 import { initSuits } from 'ide-lib-engine';
 
-export * from './config';
-export * from '.';
+export * from './[CLASSNAME]/config';
+export * from './[CLASSNAME]/';
 
 import { [CLASSNAME]Currying } from './[CLASSNAME]/';
-import { config[CLASSNAME] } from './config';
+import { config[CLASSNAME] } from './[CLASSNAME]/config';
 
 // 抽离子组件配置项
 const subComponents = config[CLASSNAME].component.children;
