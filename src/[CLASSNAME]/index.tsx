@@ -7,23 +7,23 @@ import { TComponentCurrying } from 'ide-lib-engine';
 import { StyledContainer } from './styles';
 import { ISubProps } from './subs';
 
-export interface IHeaderBlockEvent {
+export interface I[CLASSNAME]Event {
   /**
    * 点击回调函数
    */
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-// export interface IHeaderBlockStyles extends IBaseStyles {
+// export interface I[CLASSNAME]Styles extends IBaseStyles {
 //   container?: React.CSSProperties;
 // }
 
-export interface IHeaderBlockTheme extends IBaseTheme {
+export interface I[CLASSNAME]Theme extends IBaseTheme {
   main: string;
 }
 
-export interface IHeaderBlockProps
-  extends IHeaderBlockEvent,
+export interface I[CLASSNAME]Props
+  extends I[CLASSNAME]Event,
   ISubProps,
   IBaseComponentProps {
   /**
@@ -37,11 +37,12 @@ export interface IHeaderBlockProps
   text?: string;
 }
 
-export const DEFAULT_PROPS: IHeaderBlockProps = {
+export const DEFAULT_PROPS: I[CLASSNAME]Props = {
   visible: true,
   theme: {
     main: '#25ab68'
   },
+  [SUBCOMP_START]
   headerBar: {
     buttons: [
       {
@@ -51,20 +52,29 @@ export const DEFAULT_PROPS: IHeaderBlockProps = {
       }
     ]
   },
+  [SUBCOMP_END]
   styles: {
     container: {}
   }
 };
 
-export const HeaderBlockCurrying: TComponentCurrying<
-  IHeaderBlockProps,
+export const [CLASSNAME]Currying: TComponentCurrying<
+  I[CLASSNAME]Props,
   ISubProps
 > = subComponents => props => {
-  const { headerBar, visible, text, styles, onClick } = props;
+  const { 
+    [SUBCOMP_START]
+    headerBar, 
+    [SUBCOMP_END]
+    visible, text, styles, onClick } = props;
+  
+  [SUBCOMP_START]
   const { HeaderBar } = subComponents as Record<
     string,
     React.FunctionComponent<typeof props>
   >;
+  [SUBCOMP_END]
+
 
   const onClickButton = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -78,10 +88,12 @@ export const HeaderBlockCurrying: TComponentCurrying<
       style={styles.container}
       visible={visible}
       // ref={this.root}
-      className="ide-lib-engine-container"
+      className="[NAME]-container"
     >
       <Button onClick={onClickButton}>{text || '点我试试'}</Button>
+    [SUBCOMP_START]
       <HeaderBar {...headerBar} />
+    [SUBCOMP_END]
     </StyledContainer>
   );
 };

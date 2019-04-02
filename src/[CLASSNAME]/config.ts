@@ -24,6 +24,7 @@ export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
   router: {
     domain: 'header-block',
     list: [GetRouter, PostRouter, PutRouter, DelRouter],
+    [SUBCOMP_START]
     hoistRoutes: {
       alias: 'bar',
       routerNames: 'headerBar'
@@ -32,6 +33,7 @@ export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
       alias: 'blockbar',
       path: 'bar/headerbar'
     } // 自定义的路由别名规则
+    [SUBCOMP_END]
   },
   store: {
     idPrefix: 'sle'

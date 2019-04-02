@@ -4,7 +4,7 @@ import { initSuits } from 'ide-lib-engine';
 export * from './config';
 export * from '.';
 
-import { [CLASSNAME]Currying } from './[CLASSNAME]';
+import { [CLASSNAME]Currying } from './[CLASSNAME]/';
 import { config[CLASSNAME] } from './config';
 
 // 抽离子组件配置项
