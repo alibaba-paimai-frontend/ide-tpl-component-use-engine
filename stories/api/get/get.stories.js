@@ -8,7 +8,7 @@ import { [CLASSNAME]Factory } from '../../../src';
 import { modelPropsGen } from '../../helper';
 
 const {
-  [CLASSNAME]WithStore: [CLASSNAME]WithStore1,
+  ComponentWithStore: [CLASSNAME]WithStore1,
   client: client1
 } = [CLASSNAME]Factory();
 
@@ -31,7 +31,7 @@ const getInfo = (client, filter) => () => {
   client.get(`/model?${query}`).then(res => {
     const { status, body } = res;
     if (status === 200) {
-      attributes = body.attributes;
+      attributes = body.data.attributes;
     }
 
     document.getElementById('info').innerText = JSON.stringify(attributes, null, 4);

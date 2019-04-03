@@ -9,7 +9,7 @@ import { [CLASSNAME]Factory } from '../../../src';
 import { modelPropsGen } from '../../helper';
 
 const {
-  [CLASSNAME]WithStore: [CLASSNAME]WithStore1,
+  ComponentWithStore: [CLASSNAME]WithStore1,
   client: client1
 } = [CLASSNAME]Factory();
 

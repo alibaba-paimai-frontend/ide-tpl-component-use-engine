@@ -7,7 +7,7 @@ import mdPut from './put.md';
 import { [CLASSNAME]Factory } from '../../../src';
 import { modelPropsGen } from '../../helper';
 
-const { [CLASSNAME]WithStore, client } = [CLASSNAME]Factory();
+const { ComponentWithStore: [CLASSNAME]WithStore, client } = [CLASSNAME]Factory();
 
 const { Option } = Select;
 const styles = {
@@ -52,7 +52,7 @@ function updateAttr() {
         client.get(`/model`).then(res => {
           const { status, body } = res;
           if (status === 200) {
-            const attributes = body.attributes || {};
+            const attributes = body.data.attributes || {};
             document.getElementById('info').innerText =
               `更新操作：; \n` + JSON.stringify(attributes, null, 4);
           }
