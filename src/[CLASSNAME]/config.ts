@@ -50,7 +50,6 @@ export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
       // children: types.array(types.late((): IAnyModelType => SchemaModel)) // 在 mst v3 中， `types.array` 默认值就是 `[]`
       // options: types.map(types.union(types.boolean, types.string))
       // 在 mst v3 中， `types.map` 默认值就是 `{}`
-      //  ide 的 Options 可选值参考： https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html
     }
   }
 };
