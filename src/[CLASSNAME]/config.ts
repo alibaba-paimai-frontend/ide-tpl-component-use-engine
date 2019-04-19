@@ -22,7 +22,7 @@ export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
     children: subComponents
   },
   router: {
-    domain: 'header-block',
+    domain: '[DEBUGNAME]',
     list: [GetRouter, PostRouter, PutRouter, DelRouter],
     [SUBCOMP_START]
     hoistRoutes: {
