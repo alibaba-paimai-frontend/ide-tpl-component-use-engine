@@ -19,12 +19,12 @@ module.exports = common.map(config => {
         '/typescript.worker.js': 'http://localhost:9005/dist/',
       },
       [EDITOR_END]
-      port: 9000,
+      port: process.env.PORT || 9000,
       hot: true
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'demo 页面',
+        title: '[NAME]',
         excludeChunks: ['index', 'index.js'],
         // Load a custom template (lodash by default)
         template: 'demo/index.html'

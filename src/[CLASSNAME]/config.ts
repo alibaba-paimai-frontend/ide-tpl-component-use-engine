@@ -36,7 +36,7 @@ export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
     [SUBCOMP_END]
   },
   store: {
-    idPrefix: 'sle'
+    idPrefix: '[IDPREFIX]'
   },
   model: {
     controlledKeys: [], // 后续再初始化
