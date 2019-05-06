@@ -9,6 +9,7 @@ import { config[CLASSNAME] } from './[CLASSNAME]/config';
 
 const {
     ComponentModel: [CLASSNAME]Model,
+    StoresModel: [CLASSNAME]StoresModel,
     NormalComponent: [CLASSNAME],
     ComponentHOC: [CLASSNAME]HOC,
     ComponentAddStore: [CLASSNAME]AddStore,
@@ -17,6 +18,7 @@ const {
 
 export {
     [CLASSNAME]Model,
+    [CLASSNAME]StoresModel,
     [CLASSNAME],
     [CLASSNAME]HOC,
     [CLASSNAME]AddStore,
