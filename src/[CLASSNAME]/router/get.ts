@@ -1,9 +1,5 @@
 import Router from 'ette-router';
-import { 
-[SUBCOMP_START]
-  getInnerAppsMiddleware, 
-[SUBCOMP_END]
-  buildNormalResponse } from 'ide-lib-base-component';
+import {  buildNormalResponse } from 'ide-lib-base-component';
 
 
 import { IContext } from './helper';
@@ -21,8 +17,3 @@ router.get('getModelInstance', '/model', function (ctx: IContext) {
   [SUBCOMP_END]
   buildNormalResponse(ctx, 200, { attributes: stores.model.allAttibuteWithFilter(filterArray) });
 });
-
-[SUBCOMP_START]
-// 返回某个 client 对象
-router.get('getClientByName', '/innerApps/:name', getInnerAppsMiddleware);
-[SUBCOMP_END]
