@@ -1,4 +1,4 @@
-import { ValueOf } from 'ide-lib-base-component';
+import { ValueOf, getSubRouterPrefix } from 'ide-lib-base-component';
 import { IComponentConfig } from 'ide-lib-engine';
 
 [SUBCOMP_START]
@@ -37,3 +37,18 @@ export const subComponents: Record<
   }
   [SUBCOMP_END]
 };
+
+
+[SUBCOMP_START]
+// 获取子组件的 router 前缀（即格式为 `/clients/schemaTree` 这样的格式）
+export const RPATH = getSubRouterPrefix(subComponents); // 获取路由路径
+
+// 获取子组件名映射表，即: {headerBar: "headerBar"}
+export const ESubAppNames: {[key:string]: string} = {};
+for (const name in subComponents) {
+  if (subComponents.hasOwnProperty(name)) {
+    ESubAppNames[name] = (subComponents as any)[name].namedAs
+  }
+}
+[SUBCOMP_END]
+
