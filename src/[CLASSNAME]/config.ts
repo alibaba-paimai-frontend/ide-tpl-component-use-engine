@@ -3,7 +3,7 @@ import { BASE_CONTROLLED_KEYS } from 'ide-lib-base-component';
 
 import { IStoresModel, IModuleConfig } from 'ide-lib-engine';
 import { DEFAULT_PROPS, I[CLASSNAME]Props } from '.';
-import { showConsole } from './solution';
+import { showConsole } from './solution/model';
 
 import { subComponents, ISubProps } from './subs';
 
@@ -11,6 +11,9 @@ import { router as GetRouter } from './router/get';
 import { router as PostRouter } from './router/post';
 import { router as PutRouter } from './router/put';
 import { router as DelRouter } from './router/del';
+[SUBCOMP_START]
+import { routerHoistTable } from './router/helper';
+[SUBCOMP_END]
 
 export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
   component: {
