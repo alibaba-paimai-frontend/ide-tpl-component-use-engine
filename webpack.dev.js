@@ -20,6 +20,7 @@ module.exports = common.map(config => {
       },
       [EDITOR_END]
       port: process.env.PORT || 9000,
+      disableHostCheck: true,
       hot: true
     },
     plugins: [
