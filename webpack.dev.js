@@ -26,6 +26,7 @@ module.exports = common.map(config => {
     plugins: [
       new HtmlWebpackPlugin({
         title: '[NAME]',
+        chunkFilename: '[name].bundle.js',
         excludeChunks: ['index', 'index.js'],
         // Load a custom template (lodash by default)
         template: 'demo/index.html'

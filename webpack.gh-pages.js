@@ -41,6 +41,7 @@ module.exports = common.map(config => {
     ],
     output: {
       filename: 'demo.js',
+      chunkFilename: '[name].bundle.js',
       path: path.resolve(__dirname, targetDir),
       libraryTarget: 'umd',
       library: '[LIBNAME]Demo',
