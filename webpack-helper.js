@@ -1,3 +1,4 @@
+const path = require('path');
 const COMMON_EXTERNALS = {
   ette: {
     commonjs: 'ette',
@@ -55,24 +56,6 @@ const COMMON_EXTERNALS = {
     amd: 'styled-components',
     root: 'styled'
   },
-  "ide-lib-utils": {
-    "commonjs": "ide-lib-utils",
-    "commonjs2": "ide-lib-utils",
-    "amd": "ide-lib-utils",
-    "root": "ideLibUtils"
-  },
-  "ide-lib-base-component": {
-    "commonjs": "ide-lib-base-component",
-    "commonjs2": "ide-lib-base-component",
-    "amd": "ide-lib-base-component",
-    "root": "ideBaseComponent"
-  },
-  "ide-lib-engine": {
-    "commonjs": "ide-lib-engine",
-    "commonjs2": "ide-lib-engine",
-    "amd": "ide-lib-engine",
-    "root": "ideLibEngine"
-  }
 };
 
 
@@ -93,6 +76,13 @@ const ALL_EXTERNALS = Object.assign({}, COMMON_EXTERNALS, {
 
 const COMMON_LIBS = Object.keys(COMMON_EXTERNALS);
 
+// 使用 alias 解决基础包打包的问题，方便调试时修改
+const ALIAS_LIBS = [
+  'ide-lib-base-component',
+  'ide-lib-engine',
+  'ide-lib-utils'
+];
+
 module.exports = {
   COMMON_EXTERNALS,
   getExternal: function (extraLibs = [], directUse = false) {
@@ -104,5 +94,27 @@ module.exports = {
         : (ALL_EXTERNALS[lib] && ALL_EXTERNALS[lib].root) || lib;
     });
     return externals;
+  },
+  getAlias: function() {
+    const alias = {};
+    ALIAS_LIBS.forEach(lib => {
+      const isObj = typeof lib === 'object';
+      const aliasName = isObj ? lib['name'] : lib;
+      const dirPath = isObj
+        ? lib['path']
+        : path.resolve(__dirname, `../${lib}/`);
+      if (!aliasName) {
+        throw new Error('aliasName not exist!');
+      }
+      if (!dirPath) {
+        throw new Error('dirPath not exist!');
+      }
+      alias[`${aliasName}$`] = dirPath;
+    });
+
+    return {
+      alias,
+      mainFields: ['idebug', 'browser', 'module', 'main']
+    };
   }
 };
